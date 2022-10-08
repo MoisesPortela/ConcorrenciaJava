@@ -7,15 +7,6 @@ public class Main {
         Ajudante ajudante2 = new Ajudante(2);
         Ajudante ajudante3 = new Ajudante(3);
 
-//        ThreadMestra threadMestra = new ThreadMestra();
-//
-//        threadMestra.listaLavadores.add(lavador);
-//        threadMestra.listaAjudantes.add(ajudante1);
-//        threadMestra.listaAjudantes.add(ajudante2);
-//        threadMestra.listaAjudantes.add(ajudante3);
-//
-//        threadMestra.start();
-
         lavador.start();
         ajudante1.start();
         ajudante2.start();
