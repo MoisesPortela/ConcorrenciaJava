@@ -2,7 +2,7 @@ package br.com.asd;
 
 import java.util.Random;
 
-public class Lavador extends Thread{
+public class Lavador extends Thread {
     private int retirarAgua(int capacidadeCaneca) {
         int aguaRetirada = EstadoAplicacao.retirarAgua(capacidadeCaneca);
         System.out.printf("Lavador -> retirou: %s. Balde -> Volume: %s.%n ", capacidadeCaneca, EstadoAplicacao.getVolumeBaldeAgua());
@@ -15,10 +15,7 @@ public class Lavador extends Thread{
             Thread.sleep(3000);
 
             while (true) {
-                if (EstadoAplicacao.getVolumeBaldeAgua() <= 0) {
-                    Thread.currentThread().interrupt();
-                }
-                this.retirarAgua(10);
+                this.retirarAgua(20);
                 Thread.sleep(new Random().nextInt(4000));
             }
         } catch (InterruptedException ex) {

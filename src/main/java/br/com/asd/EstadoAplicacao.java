@@ -1,7 +1,5 @@
 package br.com.asd;
 
-import java.util.List;
-
 public class EstadoAplicacao {
     private static int volumeBaldeAgua = 0;
 

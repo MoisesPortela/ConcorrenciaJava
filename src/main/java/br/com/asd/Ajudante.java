@@ -1,6 +1,5 @@
 package br.com.asd;
 
-import java.util.Optional;
 import java.util.Random;
 
 public class Ajudante extends Thread {
@@ -20,19 +19,8 @@ public class Ajudante extends Thread {
     public void run() {
         try {
             while (true) {
-                if (EstadoAplicacao.getVolumeBaldeAgua() > 100) {
-                    EstadoAplicacao.normalizarVolumeAgua();
-                    System.out.printf("Balde transbordou. Ajudantes aguardando!%n");
-                    Thread.sleep(2000);
-                }
-
                 this.colocarAgua(3);
                 Thread.sleep(1000 + new Random().nextInt(3000));
-
-                if (EstadoAplicacao.getVolumeBaldeAgua() <= 0) {
-                        Thread.currentThread().interrupt();
-                }
-
             }
         } catch (InterruptedException ex) {
             System.out.println("Aplicação Ajudante finalizada.");
