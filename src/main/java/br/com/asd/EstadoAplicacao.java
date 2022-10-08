@@ -31,7 +31,7 @@ public class EstadoAplicacao {
 
         if (volumeBaldeAgua + capacidadeCaneca > 100) {
 
-            volumeBaldeAgua = 101;
+            volumeBaldeAgua = 100;
             novoVolume = volumeBaldeAgua;
 
         } else {
