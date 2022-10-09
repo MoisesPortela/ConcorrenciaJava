@@ -1,7 +1,7 @@
 package br.com.asd;
 
 public class EstadoAplicacao {
-    private static int volumeBaldeAgua = 0;
+    private static int volumeBaldeAgua = 5;
 
 
     public static int getVolumeBaldeAgua() {

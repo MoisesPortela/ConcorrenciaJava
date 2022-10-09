@@ -19,8 +19,13 @@ public class Ajudante extends Thread {
     public void run() {
         try {
             while (true) {
+                if (EstadoAplicacao.getVolumeBaldeAgua() >= 100){
+                    System.out.printf("Balde transbordou. Ajudante n. %s aguardando 2s !%n", numeroAjudante);
+                    Thread.sleep(2000);
+                };
+
+                Thread.sleep(new Random().nextInt(3000));
                 this.colocarAgua(3);
-                Thread.sleep(1000 + new Random().nextInt(3000));
             }
         } catch (InterruptedException ex) {
             System.out.println("Aplicação Ajudante finalizada.");
