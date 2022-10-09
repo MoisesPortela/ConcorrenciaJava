@@ -11,7 +11,7 @@ public class Ajudante extends Thread {
 
     public int colocarAgua(int capacidadeCaneca) {
         int aguaColocada = EstadoAplicacao.colocarAgua(capacidadeCaneca);
-        System.out.printf("Ajudante n. %s -> colocou: %s. Balde -> Volume: %s.%n ", numeroAjudante, capacidadeCaneca, EstadoAplicacao.getVolumeBaldeAgua());
+        System.out.printf("Ajudante n. %s -> colocou: %s. Balde -> Volume: %s.%n ", numeroAjudante, aguaColocada, EstadoAplicacao.getVolumeBaldeAgua());
         return aguaColocada;
     }
 
@@ -19,13 +19,14 @@ public class Ajudante extends Thread {
     public void run() {
         try {
             while (true) {
-                if (EstadoAplicacao.getVolumeBaldeAgua() >= 100){
+                if (EstadoAplicacao.getVolumeBaldeAgua() >= 100) {
                     System.out.printf("Balde transbordou. Ajudante n. %s aguardando 2s !%n", numeroAjudante);
                     Thread.sleep(2000);
-                };
+                } else {
+                    Thread.sleep(1000 + new Random().nextInt(3000));
+                    this.colocarAgua(3);
+                }
 
-                Thread.sleep(new Random().nextInt(3000));
-                this.colocarAgua(3);
             }
         } catch (InterruptedException ex) {
             System.out.println("Aplicação Ajudante finalizada.");

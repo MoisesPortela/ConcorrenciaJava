@@ -13,33 +13,31 @@ public class EstadoAplicacao {
     }
 
     public static int retirarAgua(int capacidadeCaneca) {
-        int novoVolume;
+        int volumeRetirado = 0;
 
         if (volumeBaldeAgua < capacidadeCaneca) {
+            volumeRetirado = volumeBaldeAgua;
             volumeBaldeAgua = 0;
-            novoVolume = volumeBaldeAgua;
         } else {
+            volumeRetirado = capacidadeCaneca;
             volumeBaldeAgua -= capacidadeCaneca;
-            novoVolume = volumeBaldeAgua;
         }
 
-        return novoVolume;
+        return volumeRetirado;
     }
 
     public static int colocarAgua(int capacidadeCaneca) {
-        int novoVolume;
+        int volumeColocado = 0;
 
         if (volumeBaldeAgua + capacidadeCaneca > 100) {
-
+            volumeColocado = 100 - volumeBaldeAgua;
             volumeBaldeAgua = 100;
-            novoVolume = volumeBaldeAgua;
-
         } else {
+            volumeColocado = capacidadeCaneca;
             volumeBaldeAgua += capacidadeCaneca;
-            novoVolume = volumeBaldeAgua;
 
         }
-        return novoVolume;
+        return volumeColocado;
 
     }
 
